@@ -35,6 +35,15 @@ in
           auto-tab-discard
         ];
 
+        policies = {
+          Preferences = {
+            "browser.download.manager.retention" = {
+              Value = 0;
+              Status = "locked";
+            };
+          };
+        };
+
         settings = {
           # Enable custom CSS and SVG properties for the theme
           "toolkit.legacyUserProfileCustomizations.stylesheets" = true;

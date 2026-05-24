@@ -44,6 +44,12 @@
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
 
+  # Enable AppImage support
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
+  };
+
   # Enable Steam
   programs.steam.enable = true;
   programs.steam.gamescopeSession.enable = true;
