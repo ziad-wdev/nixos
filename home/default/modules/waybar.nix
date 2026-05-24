@@ -191,6 +191,7 @@ in
         "hyprland/workspaces" = {
           format = "{icon}";
           all-outputs = true;
+          on-click = "hyprctl dispatch 'hl.dsp.focus({ workspace = {id} })'";
           persistent-workspaces = {
             "*" = [ 1 2 3 4 5 ];
           };

@@ -10,7 +10,7 @@ in
     layout = [
       {
         label = "logout";
-        action = "sleep 0.5; pkill -u $USER";
+        action = "sleep 0.5; hyprctl dispatch 'hl.dsp.exit()'";
         keybind = "l";
       }
       {
