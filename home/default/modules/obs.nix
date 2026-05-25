@@ -16,8 +16,8 @@
       nativeBuildInputs = (oldAttrs.nativeBuildInputs or []) ++ [ pkgs.makeWrapper ];
       postInstall = (oldAttrs.postInstall or "") + ''
         wrapProgram $out/bin/obs \
-          --unset QT_STYLE_OVERRIDE \
-          --unset QT_QPA_PLATFORMTHEME
+        --unset QT_STYLE_OVERRIDE \
+        --unset QT_QPA_PLATFORMTHEME
       '';
     });
 
