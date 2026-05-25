@@ -11,5 +11,18 @@
 
   programs.obs-studio = {
     enable = true;
+
+    package = pkgs.obs-studio.overrideAttrs (oldAttrs: {
+      nativeBuildInputs = (oldAttrs.nativeBuildInputs or []) ++ [ pkgs.makeWrapper ];
+      postInstall = (oldAttrs.postInstall or "") + ''
+        wrapProgram $out/bin/obs \
+          --unset QT_STYLE_OVERRIDE \
+          --unset QT_QPA_PLATFORMTHEME
+      '';
+    });
+
+    plugins = with pkgs.obs-studio-plugins; [
+      obs-vkcapture
+    ];
   };
 }
