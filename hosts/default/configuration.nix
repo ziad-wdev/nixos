@@ -27,8 +27,8 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    wireplumber.enable = true;
     jack.enable = true;
+    wireplumber.enable = true;
   };
 
   # Set the time zone to Cairo
@@ -85,11 +85,7 @@
   };
   xdg.portal = {
     enable = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-hyprland
-      pkgs.xdg-desktop-portal-gtk
-    ];
-    config.common.default = [ "hyprland" "gtk" ];
+    extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
   };
 
   # Enable gnome-keyring for password management

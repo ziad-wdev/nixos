@@ -66,7 +66,7 @@
             # Pass sharedArg to Home Manager configuration
             extraSpecialArgs = sharedArgs;
 
-            backupFileExtension = "backup";
+            backupFileExtension = "hm-backup";
             useGlobalPkgs = true;
             useUserPackages = true;
             users.${username} = {

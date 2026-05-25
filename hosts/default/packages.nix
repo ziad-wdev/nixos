@@ -14,6 +14,9 @@
     };
     packages = [
       "com.github.tchx84.Flatseal"
+      "com.rtosta.zapzap" # WhatsApp
+      "org.localsend.localsend_app" # Local file sharing
+      "com.obsproject.Studio" # OBS Studio
       "org.polymc.PolyMC" # Minecraft launcher
     ];
   };

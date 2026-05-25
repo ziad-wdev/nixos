@@ -1,4 +1,4 @@
-{ username, lib, ... }:
+{ username, config, lib, ... }:
 
 let
   # Get all files in ./modules
@@ -23,4 +23,19 @@ in
   };
 
   programs.home-manager.enable = true;
+
+  # OBS Studio theme & output configuration
+  home.file = lib.mkIf (builtins.pathExists "${config.home.homeDirectory}/.var/app/com.obsproject.Studio") {
+    ".var/app/com.obsproject.Studio/config/obs-studio" = {
+      "themes/custom.obt".source =
+        config.lib.file.mkOutOfStoreSymlink "${config.xdg.configHome}/matugen/output/obs.obt";
+      "global.ini".text = ''
+        [General]
+        Theme=custom
+
+        [AdvOut]
+        RecRecordingPath=${config.home.homeDirectory}/Videos/obs
+      '';
+    };
+  };
 }
