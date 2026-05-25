@@ -62,8 +62,8 @@
   # Enable fwupd for firmware updates
   services.fwupd.enable = true;
 
-  # Environment variable management
-  services.envs.enable = true;
+  # Fix file system environment variables
+  services.envfs.enable = true;
 
   # Enable GVFS for file system access. (for nautilus)
   services.gvfs.enable = true;
