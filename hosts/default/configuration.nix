@@ -27,6 +27,7 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
+    wireplumber.enable = true;
     jack.enable = true;
   };
 
@@ -81,11 +82,18 @@
   # Enable hyprland and setup the environment
   programs.hyprland = {
     enable = true;
-    withUWSM = false;
   };
   xdg.portal = {
     enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
+    extraPortals = [
+      pkgs.xdg-desktop-portal-hyprland
+      pkgs.xdg-desktop-portal-gtk
+    ];
+    config = {
+      common = {
+        default = [ "hyprland" "gtk" ];
+      };
+    };
   };
 
   # Enable gnome-keyring for password management
