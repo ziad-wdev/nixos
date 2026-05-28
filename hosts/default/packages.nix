@@ -13,8 +13,9 @@
       onCalendar = "weekly";
     };
     packages = [
-      "com.github.tchx84.Flatseal"
+      "com.github.tchx84.Flatseal" # Flatseal
       "com.rtosta.zapzap" # WhatsApp
+      "org.telegram.desktop" # Telegram
       "com.obsproject.Studio" # OBS Studio
       "org.localsend.localsend_app" # Local file sharing
       "org.polymc.PolyMC" # Minecraft launcher
@@ -59,11 +60,11 @@
   programs.steam.gamescopeSession.enable = true;
   programs.gamemode.enable = true;
 
-  # Enable fwupd for firmware updates
-  services.fwupd.enable = true;
-
   # Fix file system environment variables
   services.envfs.enable = true;
+
+  # Enable fwupd for firmware updates
+  services.fwupd.enable = true;
 
   # Enable GVFS for file system access. (for nautilus)
   services.gvfs.enable = true;
