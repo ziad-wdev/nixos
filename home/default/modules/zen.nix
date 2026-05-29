@@ -20,9 +20,7 @@
     enable = true;
     setAsDefaultBrowser = true;
 
-    package = inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default.override {
-      nativeMessagingHosts = [ pkgs.pywalfox-native ];
-    };
+    nativeMessagingHosts = [ pkgs.pywalfox-native ];
 
     policies = {
       ExtensionSettings = {
@@ -39,10 +37,7 @@
       isDefault = true;
 
       userChrome = ''
-        @import url("file://${config.xdg.configHome}/matugen/output/pywalzen.css");
-      '';
-      userContent = ''
-        @import url("file://${config.xdg.configHome}/matugen/output/pywalzen.css");
+        @import url("https://raw.githubusercontent.com/Axenide/PywalZen/main/chrome.css");
       '';
 
       settings = {
