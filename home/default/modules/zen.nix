@@ -8,11 +8,19 @@
   xdg.cacheFile."wal/colors.json".source =
     config.lib.file.mkOutOfStoreSymlink "${config.xdg.configHome}/matugen/output/pywalfox.json";
 
+  home.file.".mozilla/native-messaging-hosts/pywalfox.json".text = builtins.toJSON {
+    name = "pywalfox";
+    description = "Pywalfox native app";
+    path = "${pkgs.pywalfox-native}/bin/pywalfox";
+    type = "stdio";
+    allowed_extensions = [ "pywalfox@frewacom.org" ];
+  };
+
   programs.zen-browser = {
     enable = true;
     setAsDefaultBrowser = true;
 
-    package = inputs.zen-browser.packages.${pkgs.system}.default.override {
+    package = inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default.override {
       nativeMessagingHosts = [ pkgs.pywalfox-native ];
     };
 
@@ -31,10 +39,10 @@
       isDefault = true;
 
       userChrome = ''
-        @import "${pkgs.fetchurl {
-          url = "https://raw.githubusercontent.com/Axenide/PywalZen/main/chrome.css";
-          sha256 = "sha256-7IQOzepLG80qf40imKgLHk4jaA6enm/9eiYoLSzNyzY=";
-        }}";
+        @import url("file://${config.xdg.configHome}/matugen/output/pywalzen.css");
+      '';
+      userContent = ''
+        @import url("file://${config.xdg.configHome}/matugen/output/pywalzen.css");
       '';
 
       settings = {

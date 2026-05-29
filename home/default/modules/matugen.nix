@@ -86,6 +86,11 @@
     [templates.pywalfox]
     input_path = "${toPathStr ./templates/pywalfox.json}"
     output_path = "${config.xdg.configHome}/matugen/output/pywalfox.json"
+    post_hook = "pywalfox update || true"
+
+    [templates.pywalzen]
+    input_path = "${toPathStr ./templates/pywalzen.css}"
+    output_path = "${config.xdg.configHome}/matugen/output/pywalzen.css"
 
     [templates.steam]
     input_path = "${toPathStr ./templates/steam.css}"
