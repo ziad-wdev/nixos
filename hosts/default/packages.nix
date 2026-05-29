@@ -35,7 +35,9 @@
     protonup-ng # Proton Updater for steam
     lutris # Game launcher
 
+    gnome-disk-utility # Disk utility
     resources # Resource management
+    baobab # Disk usage analyzer
     showtime # video player
     loupe # Image viewer
 
