@@ -9,13 +9,10 @@
 
     # Extensions to install
     extensions = [
+      "react-snippets-es7"
       "charmed-icons"
       "git-firefly"
-      "ini"
-      "lua"
-      "nix"
-      "react-snippets-es7"
-      "toml"
+      "emmet"
     ];
 
     # Your keymaps.json configuration

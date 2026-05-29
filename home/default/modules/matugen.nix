@@ -83,6 +83,10 @@
     input_path = "${toPathStr ./templates/firefox.css}"
     output_path = "${config.xdg.configHome}/matugen/output/firefox.css"
 
+    [templates.pywalfox]
+    input_path = "${toPathStr ./templates/pywalfox.json}"
+    output_path = "${config.xdg.configHome}/matugen/output/pywalfox.json"
+
     [templates.steam]
     input_path = "${toPathStr ./templates/steam.css}"
     output_path = "${config.xdg.configHome}/matugen/output/steam.css"

@@ -53,7 +53,7 @@
         wallpaperPicker  = "pkill rofi || bash ~/.config/rofi/scripts/rofi-wallpapers.sh",
         fileManager      = "nautilus",
         terminal         = "ghostty",
-        browser          = "firefox",
+        browser          = "zen-beta",
       }
 
       -- On hyprland startup
