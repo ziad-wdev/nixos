@@ -18,7 +18,6 @@
       "org.telegram.desktop" # Telegram
       "com.obsproject.Studio" # OBS Studio
       "org.localsend.localsend_app" # Local file sharing
-      "org.polymc.PolyMC" # Minecraft launcher
     ];
   };
 

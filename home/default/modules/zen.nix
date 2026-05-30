@@ -12,14 +12,6 @@
       name = "default";
       isDefault = true;
 
-      userChrome = ''
-        @import url("file://${config.xdg.configHome}/matugen/output/zen.css");
-
-        :root {
-          --zen-primary-color: var(--color-primary);
-        }
-      '';
-
       settings = {
         # Enable custom CSS and SVG properties for the theme
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;

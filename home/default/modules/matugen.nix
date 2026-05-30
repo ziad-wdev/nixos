@@ -79,10 +79,6 @@
     input_path = "${toPathStr ./templates/vesktop.css}"
     output_path = "${config.xdg.configHome}/matugen/output/vesktop.css"
 
-    [templates.zen]
-    input_path = "${toPathStr ./templates/zen.css}"
-    output_path = "${config.xdg.configHome}/matugen/output/zen.css"
-
     [templates.steam]
     input_path = "${toPathStr ./templates/steam.css}"
     output_path = "${config.xdg.configHome}/matugen/output/steam.css"
