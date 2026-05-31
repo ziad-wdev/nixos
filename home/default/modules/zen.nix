@@ -18,31 +18,35 @@
       DontCheckDefaultBrowser = true;
       NoDefaultBookmarks = true;
       OfferToSaveLogins = false;
+
       EnableTrackingProtection = {
         Value = true;
         Locked = true;
         Cryptomining = true;
         Fingerprinting = true;
       };
+
       SanitizeOnShutdown = {
-        OfflineApps = true;
+        Cache = true;
         Downloads = true;
         FormData = true;
-        Cache = true;
-        SiteSettings = false;
-        Sessions = false;
+        OfflineApps = true;
         Cookies = false;
         History = false;
+        Sessions = false;
+        SiteSettings = false;
       };
+
       Preferences = {
         "browser.startup.homepage" = {
           Value = "about:blank";
           Status = "locked";
         };
         "zen.workspaces.continue-where-left-off" = false;
-        "zen.view.compact.hide-toolbar" = true;
         "zen.urlbar.behavior" = "floating-on-type";
         "zen.welcome-screen.seen" = true;
+        "zen.view.layout" = 2;
+        "zen.view.compact.hide-tabbar" = true;
       };
     };
 
@@ -58,6 +62,7 @@
         "f7c71d9a-bce2-420f-ae44-a64bd92975ab" # Better Unloaded Tabs
         "72f8f48d-86b9-4487-acea-eb4977b18f21" # Better CtrlTab Panel
         "664c54f9-d97d-410b-a479-23dd8a08a628" # Better Tab Indicators
+        "c5f7fb68-cc75-4df0-8b02-dc9ee13aa773" # Audio TabIcon Plus
         "4ab93b88-151c-451b-a1b7-a1e0e28fa7f8" # No Sidebar Scrollbar
         "7190e4e9-bead-4b40-8f57-95d852ddc941" # Tab title fixes
         "e122b5d9-d385-4bf8-9971-e137809097d0" # No Top Sites
@@ -67,6 +72,7 @@
 
       settings = {
         # Custom CSS & Theme
+        "browser.toolbars.bookmarks.visibility" = "always";
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
         "widget.gtk.rounded-bottom-corners.enabled" = true;
         "svg.context-properties.content.enabled" = true;
@@ -83,11 +89,13 @@
         "extensions.pocket.enabled" = false;
         "privacy.donate.urls" = "";
 
-        # Privacy & Fingerprinting
+        # Privacy & Fingerprinting (FPP enabled, RFP disabled for Dark Mode websites)
         "privacy.donottrackheader.enabled" = true;
         "privacy.trackingprotection.enabled" = true;
         "privacy.trackingprotection.socialtracking.enabled" = true;
-        "privacy.resistFingerprinting" = true;
+        "privacy.resistFingerprinting" = false;
+        "privacy.fingerprintingProtection" = true;
+        "privacy.fingerprintingProtection.overrides" = "+AllTargets,-CSSPrefersColorScheme";
 
         # Security & HTTPS
         "dom.security.https_only_mode" = true;
