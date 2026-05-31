@@ -31,7 +31,7 @@
         };
         "zen.workspaces.continue-where-left-off" = false;
         "zen.view.compact.hide-toolbar" = true;
-        "zen.urlbar.behavior" = "	floating-on-type";
+        "zen.urlbar.behavior" = "floating-on-type";
         "zen.welcome-screen.seen" = true;
       };
     };
@@ -57,20 +57,14 @@
       ];
 
       settings = {
-        # Enable custom CSS and SVG properties for the theme
+        # Custom CSS & Theme
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
         "widget.gtk.rounded-bottom-corners.enabled" = true;
         "svg.context-properties.content.enabled" = true;
         "browser.theme.dark-private-windows" = false;
         "browser.uidensity" = 0;
 
-        # Privacy & Security
-        "privacy.donate.urls" = "";
-        "privacy.donottrackheader.enabled" = true;
-        "privacy.trackingprotection.enabled" = true;
-        "privacy.trackingprotection.socialtracking.enabled" = true;
-
-        # Telemetry & Pocket (Bloatware removal)
+        # Telemetry & Bloatware removal
         "browser.newtabpage.activity-stream.feeds.telemetry" = false;
         "browser.ping-centre.telemetry" = false;
         "toolkit.telemetry.archive.enabled" = false;
@@ -78,8 +72,33 @@
         "toolkit.telemetry.server" = "data:,";
         "toolkit.telemetry.unified" = false;
         "extensions.pocket.enabled" = false;
+        "privacy.donate.urls" = "";
 
-        # UI & Quality of Life
+        # Privacy & Fingerprinting
+        "privacy.donottrackheader.enabled" = true;
+        "privacy.trackingprotection.enabled" = true;
+        "privacy.trackingprotection.socialtracking.enabled" = true;
+        "privacy.resistFingerprinting" = true;
+
+        # Security & HTTPS
+        "dom.security.https_only_mode" = true;
+        "dom.security.https_only_mode_ever_enabled" = true;
+
+        # DNS over HTTPS (DoH) & Strict Cookies
+        "network.trr.mode" = 3;
+        "network.trr.uri" = "https://mozilla.cloudflare-dns.com/dns-query";
+        "network.cookie.cookieBehavior" = 5;
+
+        # WebRTC Leak Prevention
+        "media.peerconnection.ice.default_address_only" = true;
+        "media.peerconnection.ice.no_host" = true;
+        "media.peerconnection.ice.proxy_only_if_behind_proxy" = true;
+
+        # Disable Search Suggestions & Trending
+        "browser.urlbar.suggest.searches" = false;
+        "browser.urlbar.trending.featureGate" = false;
+
+        # UI & QoL
         "browser.shell.checkDefaultBrowser" = false;
         "signon.rememberSignons" = false;
       };
