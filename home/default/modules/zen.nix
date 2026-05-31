@@ -58,7 +58,6 @@
         "f7c71d9a-bce2-420f-ae44-a64bd92975ab" # Better Unloaded Tabs
         "72f8f48d-86b9-4487-acea-eb4977b18f21" # Better CtrlTab Panel
         "664c54f9-d97d-410b-a479-23dd8a08a628" # Better Tab Indicators
-        "c5f7fb68-cc75-4df0-8b02-dc9ee13aa773" # Audio TabIcon Plus
         "4ab93b88-151c-451b-a1b7-a1e0e28fa7f8" # No Sidebar Scrollbar
         "7190e4e9-bead-4b40-8f57-95d852ddc941" # Tab title fixes
         "e122b5d9-d385-4bf8-9971-e137809097d0" # No Top Sites
