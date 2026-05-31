@@ -7,10 +7,54 @@
     enable = true;
     setAsDefaultBrowser = true;
 
+    policies = {
+      AutofillAddressEnabled = false;
+      AutofillCreditCardEnabled = false;
+      DisableAppUpdate = true;
+      DisableFeedbackCommands = true;
+      DisableFirefoxStudies = true;
+      DisablePocket = true;
+      DisableTelemetry = true;
+      DontCheckDefaultBrowser = true;
+      NoDefaultBookmarks = true;
+      OfferToSaveLogins = false;
+      EnableTrackingProtection = {
+        Value = true;
+        Locked = true;
+        Cryptomining = true;
+        Fingerprinting = true;
+      };
+      Preferences = {
+        "browser.startup.homepage" = {
+          Value = "about:blank";
+          Status = "locked";
+        };
+        "zen.workspaces.continue-where-left-off" = false;
+        "zen.view.compact.hide-toolbar" = true;
+        "zen.urlbar.behavior" = "	floating-on-type";
+        "zen.welcome-screen.seen" = true;
+      };
+    };
+
     profiles.default = {
       id = 0;
       name = "default";
       isDefault = true;
+
+      mods = [
+        "906c6915-5677-48ff-9bfc-096a02a72379" # Floating Status Bar
+        "253a3a74-0cc4-47b7-8b82-996a64f030d5" # Floating History
+        "a6335949-4465-4b71-926c-4a52d34bc9c0" # Better Find Bar
+        "f7c71d9a-bce2-420f-ae44-a64bd92975ab" # Better Unloaded Tabs
+        "72f8f48d-86b9-4487-acea-eb4977b18f21" # Better CtrlTab Panel
+        "664c54f9-d97d-410b-a479-23dd8a08a628" # Better Tab Indicators
+        "c5f7fb68-cc75-4df0-8b02-dc9ee13aa773" # Audio TabIcon Plus
+        "4ab93b88-151c-451b-a1b7-a1e0e28fa7f8" # No Sidebar Scrollbar
+        "7190e4e9-bead-4b40-8f57-95d852ddc941" # Tab title fixes
+        "e122b5d9-d385-4bf8-9971-e137809097d0" # No Top Sites
+        "a5f6a231-e3c8-4ce8-8a8e-3e93efd6adec" # Cleaned URL bar
+        "642854b5-88b4-4c40-b256-e035532109df" # Transparent Zen
+      ];
 
       settings = {
         # Enable custom CSS and SVG properties for the theme
