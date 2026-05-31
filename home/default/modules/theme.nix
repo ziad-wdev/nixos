@@ -32,11 +32,6 @@
       package = pkgs.papirus-icon-theme;
       name = "Papirus-Dark";
     };
-    cursorTheme = {
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Modern-Ice";
-      size = 24;
-    };
     theme = {
       package = pkgs.adw-gtk3;
       name = "adw-gtk3-dark";
@@ -61,6 +56,6 @@
   qt = {
     enable = true;
     platformTheme.name = "gtk3";
-    style.name = "gtk2";
+    style.name = "adwaita-dark";
   };
 }
