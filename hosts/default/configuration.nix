@@ -63,22 +63,6 @@
     };
   };
 
-  # Enable sddm
-  services.displayManager.sddm = {
-    enable = true;
-    wayland = {
-      enable = true;
-      compositor = "kwin";
-    };
-    settings = {
-      Theme = {
-        CursorTheme = "Bibata-Modern-Ice";
-        CursorSize = 24;
-      };
-    };
-  };
-  environment.systemPackages = [ pkgs.bibata-cursors ];
-
   # Enable hyprland and setup the environment
   programs.hyprland = {
     enable = true;
@@ -115,19 +99,6 @@
       powerManagement.enable = true;
       modesetting.enable = true;
       open = false;
-    };
-  };
-
-  specialisation = {
-    Gaming.configuration = {
-      hardware.nvidia = {
-        prime.sync.enable = lib.mkForce true;
-        prime.offload = {
-          enable = lib.mkForce false;
-          enableOffloadCmd = lib.mkForce false;
-        };
-        powerManagement.finegrained = lib.mkForce false;
-      };
     };
   };
 

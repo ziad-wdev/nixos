@@ -49,18 +49,11 @@
         ./hosts/default/hardware-configuration.nix
         ./hosts/default/configuration.nix
         ./hosts/default/packages.nix
-
-        inputs.qylock.nixosModules.default # sddm qylock theme
+        ./hosts/default/sddm.nix
 
         # Home Manager and sddm theme configuration
         home-manager.nixosModules.home-manager
         {
-          programs.qylock = {
-              enable = true;
-              theme = "pixel-hollowknight";
-              sddmTheme = "pixel-hollowknight";
-          };
-
           home-manager = {
             # Pass sharedArg to Home Manager configuration
             extraSpecialArgs = sharedArgs;
