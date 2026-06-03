@@ -1,25 +1,42 @@
 { inputs, pkgs, ... }:
 
-{
-  imports = [ inputs.qylock.nixosModules.default ];
+let
+  qylock-theme = pkgs.stdenv.mkDerivation {
+    pname = "qylock-theme";
+    version = "main";
 
-  services.displayManager.sddm = {
-    enable = true;
-    wayland = {
-      enable = true;
-      compositor = "kwin";
+    src = pkgs.fetchFromGitHub {
+      owner = "Darkkal44";
+      repo = "qylock";
+      rev = "main";
+      hash = "";
     };
-    settings = {
-      Theme = {
-        CursorTheme = "Bibata-Modern-Ice";
-        CursorSize = 24;
-      };
-    };
+
+    installPhase = ''
+      mkdir -p $out/share/sddm/themes
+      cp -r sddm/* $out/share/sddm/themes/
+    '';
   };
+in
+{
+  environment.systemPackages = with pkgs; [
+    bibata-cursors
+    qylock-theme
 
-  environment.systemPackages = [ pkgs.bibata-cursors ];
+    # Qt6 Dependencies
+    kdePackages.qtsvg
+    kdePackages.qt5compat
+    kdePackages.qtdeclarative
+    kdePackages.qtmultimedia
 
-  programs.qylock = let
+    # GStreamer Plugins
+    gst_all_1.gst-plugins-base
+    gst_all_1.gst-plugins-good
+    gst_all_1.gst-plugins-bad
+    gst_all_1.gst-plugins-ugly
+  ];
+
+  services.displayManager.sddm = let
     themes = {
       "Genshin Impact" = "Genshin";
       "Reverse: 1999 - I" = "R1999_1";
@@ -62,7 +79,16 @@
     theme = themes."Dog Samurai";
   in {
     enable = true;
-    theme = theme;
-    sddmTheme = theme;
+    wayland = {
+      enable = true;
+      compositor = "kwin";
+    };
+    settings = {
+      Theme = {
+        Name = theme;
+        CursorTheme = "Bibata-Modern-Ice";
+        CursorSize = 24;
+      };
+    };
   };
 }
