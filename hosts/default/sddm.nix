@@ -71,7 +71,10 @@ in
     theme = builtins.elemAt themes 1;
   in {
     enable = true;
-    wayland.enable = true;
+    wayland = {
+      enable = true;
+      compositor = "kwin";
+    };
 
     theme = theme;
 
