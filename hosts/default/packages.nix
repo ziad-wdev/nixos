@@ -64,27 +64,7 @@
   # Enable Steam
   programs.steam = {
     enable = true;
-    package = pkgs.steam.override {
-      extraEnv = {
-        # Force Gamescope to use Wayland and proper rendering backends
-        "SDL_VIDEODRIVER" = "wayland";
-        "QT_QPA_PLATFORM" = "wayland";
-
-        # Crucial for NVIDIA/Gamescope stability
-        "WLR_DRM_NO_ATOMIC" = "1";
-        "WLR_RENDERER" = "vulkan";
-
-        # Ensure it tries to use the NVIDIA GPU specifically
-        "__NV_PRIME_RENDER_OFFLOAD" = "1";
-        "__GLX_VENDOR_LIBRARY_NAME" = "nvidia";
-      };
-    };
     gamescopeSession.enable = true;
-    gamescopeSession.args = [
-      "--rt"              # Use real-time scheduling to prevent lag
-      "--expose-wayland"  # Better compatibility with modern games
-      "--immediate-flips" # Helps reduce latency (test without this if you see tearing)
-    ];
   };
   programs.gamemode.enable = true;
 }
