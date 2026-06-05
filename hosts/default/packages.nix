@@ -1,5 +1,11 @@
 { inputs, pkgs, ... }:
 
+let
+  pkgs-stable = import inputs.nixpkgs-stable {
+    inherit (pkgs) system;
+    config.allowUnfree = true;
+  };
+in
 {
   imports = [
     inputs.nix-flatpak.nixosModules.nix-flatpak
@@ -40,8 +46,16 @@
     showtime # video player
     loupe # Image viewer
 
+    # Python runtime and package manager
+    python3
+    python3Packages.pip
+
+    # Node.js stable runtime and global tools
+    pkgs-stable.nodejs
+    nodePackages.typescript
+    nodePackages.pnpm
+
     # System utilities
-    nodejs
     gh
     git
     curl
@@ -68,4 +82,13 @@
     gamescopeSession.enable = true;
   };
   programs.gamemode.enable = true;
+
+  # Compatibility layer for unpatched dynamic binaries
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      libsecret
+      glib
+    ];
+  };
 }
