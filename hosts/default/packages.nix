@@ -2,7 +2,7 @@
 
 let
   pkgs-stable = import inputs.nixpkgs-stable {
-    inherit (pkgs) system;
+    system = pkgs.stdenv.hostPlatform.system;
     config.allowUnfree = true;
   };
 in
@@ -52,8 +52,8 @@ in
 
     # Node.js stable runtime and global tools
     pkgs-stable.nodejs
-    nodePackages.typescript
-    nodePackages.pnpm
+    typescript
+    pnpm
 
     # System utilities
     gh
