@@ -38,14 +38,4 @@ in
       '';
     };
   };
-
-  # NPM global packages configuration
-  home.sessionPath = [
-    "$HOME/.npm-global/bin"
-  ];
-
-  # Set NPM_CONFIG_PREFIX to ensure npm uses the correct directory for global packages
-  home.sessionVariables = {
-    NPM_CONFIG_PREFIX = "$HOME/.npm-global";
-  };
 }

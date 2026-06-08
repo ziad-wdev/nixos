@@ -21,7 +21,12 @@
       theme = "robbyrussell";
     };
 
+    sessionVariables = {
+      NPM_CONFIG_PREFIX = "$HOME/.npm-global";
+    };
+
     initContent = ''
+      export PATH="$HOME/.npm-global/bin:$PATH"
       fastfetch
     '';
   };
