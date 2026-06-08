@@ -52,7 +52,6 @@ in
 
     # Node.js stable runtime and global tools
     pkgs-stable.nodejs
-    pnpm
 
     # System utilities
     gh

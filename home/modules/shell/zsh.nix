@@ -24,14 +24,6 @@ in
       theme = "robbyrussell";
     };
 
-    home.sessionVariables = {
-      PNPM_HOME = "${config.xdg.dataHome}/pnpm";
-    };
-
-    home.sessionPath = [
-      "${config.xdg.dataHome}/pnpm"
-    ];
-
     initContent = ''
       fastfetch
     '';
