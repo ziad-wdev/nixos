@@ -1,7 +1,7 @@
 { inputs, config, ... }:
 
 let
-  flakePath = inputs.self.outPath;
+  flakePath = toString inputs.self.outPath;
 in
 {
   programs.zsh = {
