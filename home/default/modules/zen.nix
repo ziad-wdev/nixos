@@ -95,7 +95,7 @@
         "privacy.trackingprotection.socialtracking.enabled" = true;
         "privacy.resistFingerprinting" = false;
         "privacy.fingerprintingProtection" = true;
-        "privacy.fingerprintingProtection.overrides" = "+AllTargets,-CSSPrefersColorScheme,-WebGLRenderCapability,-EfficientCanvasRandomization";
+        "privacy.fingerprintingProtection.overrides" = "+AllTargets,-CSSPrefersColorScheme,-CanvasRandomization,-EfficientCanvasRandomization,-WebGLRenderCapability";
 
         # Security & HTTPS
         "dom.security.https_only_mode" = true;
