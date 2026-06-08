@@ -43,7 +43,7 @@
           Status = "locked";
         };
         "zen.workspaces.continue-where-left-off" = false;
-        "zen.urlbar.behavior" = "floating-on-type";
+        "zen.urlbar.behavior" = "floating";
         "zen.welcome-screen.seen" = true;
         "zen.view.layout" = 2;
         "zen.view.compact.hide-tabbar" = true;
@@ -95,7 +95,7 @@
         "privacy.trackingprotection.socialtracking.enabled" = true;
         "privacy.resistFingerprinting" = false;
         "privacy.fingerprintingProtection" = true;
-        "privacy.fingerprintingProtection.overrides" = "+AllTargets,-CSSPrefersColorScheme";
+        "privacy.fingerprintingProtection.overrides" = "+AllTargets,-CSSPrefersColorScheme,-WebGLRenderCapability,-EfficientCanvasRandomization";
 
         # Security & HTTPS
         "dom.security.https_only_mode" = true;

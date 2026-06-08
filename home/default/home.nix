@@ -24,7 +24,7 @@ in
 
   programs.home-manager.enable = true;
 
-  # OBS Studio theme & output configuration
+  # OBS Studio theme & output configuration (only if OBS is installed as a Flatpak)
   home.file = lib.mkIf (builtins.pathExists "${config.home.homeDirectory}/.var/app/com.obsproject.Studio") {
     ".var/app/com.obsproject.Studio/config/obs-studio" = {
       "themes/custom.obt".source =
