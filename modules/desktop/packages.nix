@@ -53,8 +53,22 @@
     brightnessctl # Brightness control
   ];
 
-  # Enable Docker for containerization.
-  virtualisation.docker.enable = true;
+  # Enable Docker for containerization and NVIDIA container toolkit.
+  hardware.nvidia-container-toolkit.enable = true;
+  virtualisation.docker = {
+    enable = true;
+    daemon.settings = {
+      default-runtime = "nvidia";
+      runtimes = {
+        nvidia = {
+          path = "${pkgs.nvidia-container-toolkit}/bin/nvidia-container-runtime";
+        };
+      };
+      env = [
+        "NVIDIA_VISIBLE_DEVICES=all"
+      ];
+    };
+  };
 
   # Configure zsh shell.
   programs.zsh.enable = true;
