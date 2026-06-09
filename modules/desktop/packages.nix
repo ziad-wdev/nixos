@@ -55,7 +55,10 @@
 
   # Enable Docker for containerization and NVIDIA container toolkit.
   hardware.nvidia-container-toolkit.enable = true;
-  virtualisation.docker.enable = true;
+  virtualisation.docker = {
+    enable = true;
+    enableNvidia = true;
+  };
 
   # Configure zsh shell.
   programs.zsh.enable = true;
