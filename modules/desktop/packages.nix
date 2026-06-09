@@ -57,16 +57,9 @@
   hardware.nvidia-container-toolkit.enable = true;
   virtualisation.docker = {
     enable = true;
+    enableNvidia = true;
     daemon.settings = {
       default-runtime = "nvidia";
-      runtimes = {
-        nvidia = {
-          path = "${pkgs.nvidia-container-toolkit}/bin/nvidia-container-runtime";
-        };
-      };
-      env = [
-        "NVIDIA_VISIBLE_DEVICES=all"
-      ];
     };
   };
 
