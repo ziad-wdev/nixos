@@ -1,11 +1,5 @@
 { inputs, pkgs, ... }:
 
-let
-  pkgs-stable = import inputs.nixpkgs-stable {
-    system = pkgs.stdenv.hostPlatform.system;
-    config.allowUnfree = true;
-  };
-in
 {
   imports = [
     inputs.nix-flatpak.nixosModules.nix-flatpak
@@ -37,7 +31,6 @@ in
   ];
 
   environment.systemPackages = with pkgs; [
-    protonup-ng # Proton Updater for steam
     lutris # Game launcher
 
     gnome-disk-utility # Disk utility
@@ -46,14 +39,8 @@ in
     showtime # video player
     loupe # Image viewer
 
-    # Python runtime and package manager
-    python3
-    python3Packages.pip
-
-    # Node.js stable runtime and global tools
-    pkgs-stable.nodejs
-
     # System utilities
+    nodejs_24
     gh
     git
     curl
