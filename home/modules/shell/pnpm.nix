@@ -10,4 +10,9 @@
   home.sessionPath = [
     "${config.xdg.dataHome}/pnpm/bin"
   ];
+
+  programs.zsh.initContent = ''
+    export PNPM_HOME="${config.xdg.dataHome}/pnpm"
+    export PATH="$PNPM_HOME/bin:$PATH"
+  '';
 }

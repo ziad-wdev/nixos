@@ -5,6 +5,7 @@
       "$schema" = "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json";
 
       logo = {
+        type = "file";
         source = ../../assets/icons/ascii.txt;
         color = {
           "1" = "1";
