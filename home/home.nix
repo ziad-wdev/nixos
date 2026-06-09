@@ -1,20 +1,8 @@
 { username, stateVersion, config, lib, ... }:
 
 let
-  modulePaths = builtins.concatMap
-    (category:
-      let
-        categoryPath = ./modules + "/${category}";
-      in
-      if builtins.pathExists categoryPath then
-        map
-          (file: categoryPath + "/${file}")
-          (builtins.filter (f: builtins.match ".*\\.nix$" f != null)
-            (builtins.attrNames (builtins.readDir categoryPath)))
-      else
-        []
-    )
-    [ "shell" "desktop" "apps" ];
+  loadModules = import ../lib/loadModules.nix;
+  modulePaths = loadModules ./modules [ "shell" "desktop" "apps" ];
 in
 {
   imports = modulePaths;

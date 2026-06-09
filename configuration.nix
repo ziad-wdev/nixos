@@ -1,20 +1,8 @@
 { inputs, username, stateVersion, ... }:
 
 let
-  modulePaths = builtins.concatMap
-    (category:
-      let
-        categoryPath = ./modules + "/${category}";
-      in
-      if builtins.pathExists categoryPath then
-        map
-          (file: categoryPath + "/${file}")
-          (builtins.filter (f: builtins.match ".*\\.nix$" f != null)
-            (builtins.attrNames (builtins.readDir categoryPath)))
-      else
-        []
-    )
-    [ "system" "desktop" ];
+  loadModules = import ./lib/loadModules.nix;
+  modulePaths = loadModules ./modules [ "system" "desktop" ];
 in
 {
   imports = [ inputs.disko.nixosModules.disko ] ++ modulePaths;
