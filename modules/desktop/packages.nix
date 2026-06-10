@@ -19,7 +19,7 @@
     loupe # Image viewer
 
     # System utilities
-    
+    systray-docker
     python3
     python3Packages.pip
     nodejs_24
