@@ -1,8 +1,38 @@
 { username, stateVersion, config, lib, ... }:
 
 let
-  loadModules = import ../lib/loadModules.nix;
-  modulePaths = loadModules ./modules [ "shell" "desktop" "apps" ];
+  loadModules = attrs:
+    builtins.concatMap
+      (key:
+        map (val: ./. + "/${key}/${val}.nix") attrs.${key}
+      )
+      (builtins.attrNames attrs);
+      
+  modulePaths = loadModules {
+    "modules/apps" = [
+      "vesktop"
+      "zed"
+      "zen"
+    ];
+    "modules/desktop" = [
+      "ghostty"
+      "hypridle"
+      "hyprland"
+      "hyprlock"
+      "matugen"
+      "nautilus"
+      "rofi"
+      "theme"
+      "waybar"
+      "wlogout"
+    ];
+    "modules/shell" = [
+      "fastfetch"
+      "git"
+      "pnpm"
+      "zsh"
+    ];
+  };
 in
 {
   imports = modulePaths;

@@ -24,10 +24,9 @@
   let
     username = "ziad";
     stateVersion = "26.05";
+    flakePath = "/home/${username}/.nix-config";
     sharedArgs = {
-      username = username;
-      stateVersion = stateVersion;
-      inherit inputs;
+      inherit username stateVersion flakePath inputs;
     };
   in
   {

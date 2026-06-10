@@ -1,27 +1,6 @@
-{ inputs, pkgs, ... }:
+{ pkgs, ... }:
 
 {
-  imports = [
-    inputs.nix-flatpak.nixosModules.nix-flatpak
-  ];
-
-  # Enable Flatpak for system-wide package management
-  services.flatpak = {
-    enable = true;
-    update.auto = {
-      enable = true;
-      onCalendar = "weekly";
-    };
-    packages = [
-      "com.github.tchx84.Flatseal" # Flatseal
-      "com.rtosta.zapzap" # WhatsApp
-      "org.telegram.desktop" # Telegram
-      "com.obsproject.Studio" # OBS Studio
-      "org.localsend.localsend_app" # Local file sharing
-    ];
-  };
-
-  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   nixpkgs.overlays = [
@@ -60,6 +39,13 @@
     enableNvidia = true;
   };
 
+  # Enable Steam
+  programs.steam = {
+    enable = true;
+    gamescopeSession.enable = true;
+  };
+  programs.gamemode.enable = true;
+
   # Configure zsh shell.
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
@@ -70,14 +56,7 @@
   # Library for rendering SVG icons
   programs.gdk-pixbuf.modulePackages = [ pkgs.librsvg ];
 
-  # Enable Steam
-  programs.steam = {
-    enable = true;
-    gamescopeSession.enable = true;
-  };
-  programs.gamemode.enable = true;
-
-  # Compatibility layer for unpatched dynamic binaries
+  # Compatibility layer for unpatched dynamic binaries (e.g. Copilot)
   programs.nix-ld = {
     enable = true;
     libraries = with pkgs; [
