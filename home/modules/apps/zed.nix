@@ -108,7 +108,10 @@
       preferred_line_length = 120;
       prettier = {
         allowed = true;
-        plugins = [ "@ianvs/prettier-plugin-sort-imports" "prettier-plugin-tailwindcss" ];
+        plugins = [
+          "@ianvs/prettier-plugin-sort-imports"
+          "prettier-plugin-tailwindcss"
+        ];
       };
       project_panel = {
         auto_fold_dirs = false;
